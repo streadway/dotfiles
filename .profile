@@ -25,4 +25,5 @@ export PIG_CLASSPATH=/usr/local/hadoop/conf
 
 export JAVA_OPTS="-Xmx768m"
 
-[ -f $HOME/.local.profile ] && . $HOME/.local.profile
+[ -s $HOME/.local.profile   ] && . $HOME/.local.profile
+[ -s $HOME/.rvm/scripts/rvm ] && . $HOME/.rvm/scripts/rvm
