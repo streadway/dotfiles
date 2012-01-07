@@ -3,7 +3,7 @@
 # streadway - .zshrc
 #
 
-#source ~/.profile
+source ~/.profile
 
 #
 # Includes
