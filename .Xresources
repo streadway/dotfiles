@@ -1,0 +1,75 @@
+!
+! .Xresources
+!
+
+! dzen2
+dzen2.font:                fixed
+dzen2.foreground:          #22ee11
+dzen2.background:          black
+
+! URxvt
+URxvt.scrollBar:           false
+URxvt.saveLines:           40960
+URxvt.internalBorder:      4
+URxvt.externalBorder:      0
+URxvt.highlightSelection:  true
+URxvt.letterSpace:         -1
+URxvt.loginShell:          true
+URxvt.urgentOnBell:        true
+URxvt.fading:              25%
+URxvt.pointerBlank:        true
+URxvt.cursorBlink:         true
+
+! Font
+URxvt.font: xft:Menlo:size=12:dpi=96
+
+URxvt.keysym.M-C-0: command:\033]710;xft:Menlo:size=10:dpi=96\007
+URxvt.keysym.M-C-1: command:\033]710;xft:Menlo:size=12:dpi=96\007
+URxvt.keysym.M-C-2: command:\033]710;xft:Menlo:size=14:dpi=96\007
+URxvt.keysym.M-C-3: command:\033]710;xft:Menlo:size=16:dpi=96\007
+URxvt.keysym.M-C-4: command:\033]710;xft:Menlo:size=18:dpi=96\007
+URxvt.keysym.M-C-5: command:\033]710;xft:Menlo:size=24:dpi=96\007
+URxvt.keysym.M-C-9: command:\033]710;xft:Menlo:size=36:dpi=96\007
+
+!
+! Color
+!
+URxvt.cursorColor: green
+URxvt.borderColor: black
+URxvt.scrollColor: black
+URxvt.background:  black
+URxvt.foreground:  white
+
+! black
+URxvt*color0:      #000000
+
+! red
+URxvt*color1:      #9e1828
+
+! green
+URxvt*color2:      #86ce47
+
+! yellow
+URxvt*color3:      #ffec4e
+
+! blue
+URxvt*color4:      #515181
+
+! magenta
+URxvt*color5:      #b65c79
+
+! cyan
+URxvt*color6:      #519189
+
+! white
+URxvt*color7:      #bebebe
+
+URxvt*color8:      #999999
+URxvt*color9:      #cf3e3e
+URxvt*color10:     #adf343
+URxvt*color11:     #fff796
+URxvt*color12:     #72d0e1
+URxvt*color13:     #e078b5
+URxvt*color14:     #71bebe
+URxvt*color15:     #ffffff
+
