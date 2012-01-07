@@ -3,6 +3,7 @@
 .xmonad/history
 .xmonad/xmonad-*
 .xmonad/*.errors
+.vim/.netrwhist
 .vim/ruby/command-t/mkmf.log
 .vim/ruby/command-t/Makefile
 .vim/ruby/command-t/ext.so
