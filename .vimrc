@@ -1,4 +1,6 @@
 " Leaders are needed before plugins are loaded
+let mapleader=","
+let g:mapleader=","
 let maplocalleader=","
 let g:maplocalleader=","
 
@@ -95,3 +97,7 @@ map <F8> <ESC>:!ruby -rubygems %<CR>
 map <S-F8> <ESC>:!script/spec -X %<CR>
 map <M-F8> <ESC>:!time script/spec %:p -l <C-R>=line('.')<CR><CR>
 map <M-S-F8> <ESC>:!time script/spec -X %:p -l <C-R>=line('.')<CR><CR>
+
+map <Leader>n :nohlsearch<CR>
+map <Leader>p :set paste<CR>
+map <Leader>P :set nopaste<CR>
