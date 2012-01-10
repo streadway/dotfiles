@@ -4,6 +4,8 @@ let g:mapleader=","
 let maplocalleader=","
 let g:maplocalleader=","
 
+set nocompatible
+
 " Text Handling
 set tabstop=2
 set shiftwidth=2
@@ -31,7 +33,6 @@ if has("gui_macvim")
 endif
 
 " Look and Feel
-set nocompatible
 set hlsearch
 set incsearch
 set ignorecase
@@ -54,7 +55,7 @@ set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
 set autowriteall
 set autoread          " reload when no local changes
 set backup
-set backupdir=~/.backup,~/tmp,/var/tmp/,/tmp,.
+set backupdir=~/.vim/backup,~/.backup,~/tmp,/var/tmp/,/tmp,.
 set directory=~/tmp,/var/tmp,/tmp,.
 
 " Suffixes that get lower priority when doing tab completion for filenames.
@@ -80,24 +81,14 @@ colorscheme darkblue
 syntax enable
 
 "" Bash out extra whitespace
-highlight CursorLine guibg=Gray20
+highlight StatusLine ctermbg=234
+highlight StatusLineNC ctermbg=232 ctermfg=8
+highlight CursorLine guibg=Gray20 ctermbg=233 cterm=NONE
 highlight Pmenu ctermfg=black ctermbg=brown gui=bold
 highlight PmenuSel ctermfg=black ctermbg=lightmagenta gui=bold
-highlight LineNr guifg=#0e0e0e ctermfg=darkgrey
+highlight LineNr ctermfg=235
 
 "" Mappings
-map <F4> :cn<CR>
-map <S-F4> :cp<CR>
-map <F5> :make<CR>:cw<CR>
-map <F6> :!rake development<CR>
-map <F7> :!script/console development<CR>
-map <F12> :!ruby %:p<CR>
-imap <F12> <ESC>:!ruby %:p<CR>
-map <F8> <ESC>:!ruby -rubygems %<CR>
-map <S-F8> <ESC>:!script/spec -X %<CR>
-map <M-F8> <ESC>:!time script/spec %:p -l <C-R>=line('.')<CR><CR>
-map <M-S-F8> <ESC>:!time script/spec -X %:p -l <C-R>=line('.')<CR><CR>
-
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>
 map <Leader>P :set nopaste<CR>
