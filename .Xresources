@@ -62,7 +62,9 @@ URxvt.keysym.M-C-9: command:\033]710;xft:Menlo:size=36\007
 !!cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
 !!green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
 
-#define S_base03        #002b36
+!! #define S_base03        #002b36
+!! L*A*B 2.2 -9.348 -11.091
+#define S_base03        #000f1a
 #define S_base02        #073642
 #define S_base01        #586e75
 #define S_base00        #657b83
