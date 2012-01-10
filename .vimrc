@@ -77,7 +77,7 @@ if $TERM == "rxvt-unicode"
   set t_Co=256
 endif
 
-colorscheme darkblue
+colorscheme solarized
 syntax enable
 
 "" Bash out extra whitespace

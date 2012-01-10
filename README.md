@@ -56,4 +56,5 @@ Fork what you want, give attribution if it's needed, my contributions released w
   * Slimv: Public Domain
   * Slime: Public Domain
   * HAML/SASS/SCSS: (c) Tim Pope https://github.com/tpope/vim-haml
+  * Solarized: (c) 2011 Ethan Schoonover.  Licensed under MIT. http://ethanschoonover.com/solarized
 
