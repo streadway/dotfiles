@@ -26,13 +26,9 @@ bindkey "^r" history-incremental-search-backward
 
 # git
 alias gush='git push'
-alias github='gush origin master'
-alias origin='gush origin master'
-alias gist='git status'
 alias gull='git pull'
 alias gadd='git add'
 alias gim='git commit -m'
-alias c='git commit'
 
 if [[ $(uname) = 'Darwin' ]]; then
   alias l='ls -alAghp'

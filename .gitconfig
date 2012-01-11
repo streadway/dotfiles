@@ -1,0 +1,25 @@
+[user]
+	email = sean@soundcloud.com
+	name = Sean Treadway
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	gemver = !v=`ruby -e \"puts eval(File.read(Dir.glob(%(*.gemspec)).first)).version.to_s\"` && git tag -a v$v -m \"tagging v$v\"
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[merge]
+	tool = vimdiff
+[push]
+	default = tracking
+[apply]
+	whitespace = nowarn
+[github]
+	user = streadway
+  token = !"cat ~/.github.token 2>/dev/null || security 2>&1 >/dev/null find-generic-password -gs github.token | ruby -e 'print $1 if STDIN.gets =~ /^password: \"(.*)\"$/'"
+[gist]
+	private = yes
