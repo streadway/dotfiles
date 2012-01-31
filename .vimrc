@@ -19,13 +19,13 @@ set nowrap
 set nofoldenable
 set sidescroll=5
 set list             " alternate: set listchars+=tab:▸\ ,eol¬
-set listchars=tab:»· 
+set listchars=tab:»·
 set listchars+=trail:·
-set listchars+=precedes:<,extends:>
+set listchars+=precedes:◀,extends:▶
 set grepprg=ack\ -a\ -G\ '[^.6]$'
 
 if has("gui_macvim")
-  let macvim_skip_cmd_opt_movement = 1
+  let macvim_skip_cmd_opt_movement=1
   set guioptions=egmt
   set cursorline
   set antialias
@@ -63,9 +63,11 @@ set directory=~/tmp,/var/tmp,/tmp,.
 set suffixes=.bak,~,.swp,.o,.6,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.class,.jar
 
 " Per file-type indentation
-autocmd BufEnter *.js  set sts=4 sw=4
-autocmd BufEnter *.c   set sts=4 sw=4
-autocmd BufEnter *.go  set ts=2 sw=2 noet nolist ai
+autocmd BufEnter *.js     set sts=4 sw=4
+autocmd BufEnter *.c      set sts=4 sw=4
+autocmd BufEnter *.go     set ts=2 sw=2 noet nolist ai
+autocmd BufEnter *.thrift set ts=2 sw=2
+autocmd BufEnter *.thrift setf thrift
 
 " File-type
 filetype on
@@ -73,10 +75,6 @@ filetype plugin on
 filetype indent on
 
 " Colors
-if $TERM == "rxvt-unicode"
-  set t_Co=256
-endif
-
 colorscheme solarized
 syntax enable
 
@@ -90,5 +88,5 @@ highlight LineNr ctermfg=235
 
 "" Mappings
 map <Leader>n :nohlsearch<CR>
-map <Leader>p :set paste<CR>
-map <Leader>P :set nopaste<CR>
+map <Leader>p :set paste<CR>i
+map <Leader>P :set nopaste<CR>i
