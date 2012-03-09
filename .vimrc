@@ -6,6 +6,9 @@ let g:maplocalleader=","
 
 set nocompatible
 
+" Extra runtime configs
+set rtp+=$GOROOT/misc/vim
+
 " Text Handling
 set tabstop=2
 set shiftwidth=2
@@ -70,9 +73,8 @@ autocmd BufEnter *.thrift set ts=2 sw=2
 autocmd BufEnter *.thrift setf thrift
 
 " File-type
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
+syntax on
 
 " Colors
 colorscheme solarized
