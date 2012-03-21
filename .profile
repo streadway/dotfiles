@@ -20,7 +20,8 @@ export LANG="en_US.UTF-8"
 export LC_TYPE="en_US.UTF-8"
 export CLICOLOR="true"
 
-export JAVA_OPTS="-Xmx768m"
+export JAVA_OPTS="-Xmx2048M"
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M -Xmx2048M"
 
 export GOROOT="$HOME/go"
 export GOPATH="$HOME/.go:$GOROOT"
