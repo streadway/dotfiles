@@ -62,9 +62,6 @@ echo "Using fontpath: $fontpath" >> /tmp/xinit.log
   unset fontpath
 fi
 
-# Start urxvt daemon
-urxvtd -q -o -f
-
 # Mute the bell
 xset b off
 

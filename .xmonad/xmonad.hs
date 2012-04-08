@@ -41,10 +41,9 @@ main = do
              urgencyConfig { suppressWhen = Focused, remindWhen = (Every (minutes 1.0)) }
          $ defaultConfig
     {
-    --  modMask = mod4Mask
-      terminal = "urxvt -ls -cd $HOME"
-    , normalBorderColor  = "#cccccc"
-    , focusedBorderColor = "#cd8b00"
+      terminal = "cd $HOME && exec xterm -ls -tn xterm-256color"
+    , normalBorderColor  = "#073642"
+    , focusedBorderColor = "#cb4b16"
     , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
     }
     `additionalKeysP`

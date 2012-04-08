@@ -21,7 +21,6 @@ Install [brew][brew] into `/usr/local`, [XQuartz][XQuartz] into `/opt`, [rvm][rv
     brew install git
     brew install zsh
     brew install macvim --override-system-vim --enable-clipboard
-    brew install rxvt-unicode --disable-iso14755
     brew install haskell-platform
     cabal install xmonad
     cabal install xmonad-contrib
@@ -45,7 +44,6 @@ github account name, or to a chmod 0600 file ~/.github.token
 
   * xinitrc for standalone launching for XQuartz.org
   * XMonad for crashless tiled window management
-  * Xresources for URxvt and Xft
 
 ## zsh
 
