@@ -19,6 +19,7 @@ set -o vi
 
 # Bind <C-r> to history search
 bindkey "^r" history-incremental-search-backward
+bindkey "^a" beginning-of-line
 
 #
 # Aliases
@@ -148,3 +149,5 @@ ZLS_COLORS=$LS_COLORS
 export LS_COLORS
 export ZLS_COLORS
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
