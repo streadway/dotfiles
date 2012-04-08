@@ -26,8 +26,9 @@ Install [brew][brew] into `/usr/local`, [XQuartz][XQuartz] into `/opt`, [rvm][rv
     cabal install xmonad
     cabal install xmonad-contrib
 
-Add the [github token](https://github.com/account) to the keychain under the
-name 'github.token' or to a chmod 0600 file ~/.github.token
+Add the [github token](https://github.com/account) and github password to the
+keychain under the name `github.token` and `github.password` including the
+github account name, or to a chmod 0600 file ~/.github.token
 
 [brew]:https://github.com/mxcl/homebrew/wiki/installation
 [rvm]:http://beginrescueend.com/rvm/install/
