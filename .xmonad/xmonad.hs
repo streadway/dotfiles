@@ -25,7 +25,6 @@ import XMonad.Hooks.UrgencyHook
 -- http://braincrater.wordpress.com/2008/11/29/pimp-your-xmonad-3-prompt/
 import XMonad.Prompt
 import XMonad.Prompt.RunOrRaise
--- import XMonad.Prompt.Shell
 import XMonad.Prompt.Window
 import XMonad.Prompt.XMonad
 import XMonad.Prompt.AppLauncher
@@ -36,17 +35,7 @@ myXPConfig = defaultXPConfig {
              , position = Top
              }
 
--- If q contains x
-contain q x = fmap (isInfixOf x) q
-
-myManageHook = composeAll . concat $
-    [ [ title `contain` c --> doFloat | c <- myFloats ]
-    ]
-    where myFloats = ["Option", "option", "Preference", "preference"]
-
-
 main = do
-  sp <- mkSpawner
   xmonad $ withUrgencyHookC
              dzenUrgencyHook { duration = (seconds 5.0), args = ["-xs", "1"] }
              urgencyConfig { suppressWhen = Focused, remindWhen = (Every (minutes 1.0)) }
@@ -56,13 +45,10 @@ main = do
       terminal = "urxvt -ls -cd $HOME"
     , normalBorderColor  = "#cccccc"
     , focusedBorderColor = "#cd8b00"
-    , manageHook = manageSpawn sp <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
     , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
     }
     `additionalKeysP`
-    [ -- dmenu replacement
-      ("M-p", shellPromptHere sp myXPConfig)
-    , ("M-g", windowPromptGoto myXPConfig)
+    [ ("M-g", windowPromptGoto myXPConfig)
     , ("M-e", launchApp myXPConfig "vim")
     , ("M-S-k", kill)
     , ("M-d", sinkAll)
