@@ -92,3 +92,4 @@ highlight LineNr ctermfg=235
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>i
 map <Leader>P :set nopaste<CR>i
+map <Leader>s :setlocal spell! spelllang=en_us<CR>
