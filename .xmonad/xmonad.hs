@@ -41,7 +41,7 @@ main = do
              urgencyConfig { suppressWhen = Focused, remindWhen = (Every (minutes 1.0)) }
          $ defaultConfig
     {
-      terminal = "cd $HOME && exec xterm -ls -tn xterm-256color"
+      terminal = "cd $HOME && exec xterm -ls"
     , normalBorderColor  = "#073642"
     , focusedBorderColor = "#cb4b16"
     , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig

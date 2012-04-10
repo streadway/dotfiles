@@ -10,19 +10,29 @@ Xft.hinting:    true
 Xft.hintstyle:  1
 Xft.autohint:   true
 
+XCursor*theme:  Neutral
+
 ! dzen2
 dzen2.font:                fixed
 dzen2.foreground:          #22ee11
 dzen2.background:          black
 
 ! XTerm
+XTerm*termName:            xterm-256color
 XTerm*scrollBar:           false
 XTerm*scrollTtyOutput:     false
+XTerm*scrollKey:           true
 XTerm*saveLines:           40960
 XTerm*highlightSelection:  true
 XTerm*bellIsUrgent:        true
-XTerm*pointerBlank:        true
+XTerm*visualBell:          false
+XTerm*visualBellLine:      true
+XTerm*dynamicColors:       true
+XTerm*pointerMode:         2
+XTerm*pointerColor:        #6c71c4
+XTerm*pointerColorBackground: #002b36
 XTerm*cursorBlink:         true
+XTerm*sessionMgt:          false
 
 ! Font
 XTerm*faceName: xft:Menlo:aspect=0.9

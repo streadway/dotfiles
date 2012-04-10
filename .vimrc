@@ -50,7 +50,7 @@ set mouse=v
 set showcmd
 set showmatch
 set background=dark
-set visualbell
+set novisualbell
 set winminheight=0
 set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
 
