@@ -42,6 +42,7 @@ github account name, or to a chmod 0600 file ~/.github.token
 
 ## X11
 
+  * XTerm is the terminal emulator.
   * xinitrc for standalone launching for XQuartz.org
   * XMonad for crashless tiled window management
 
