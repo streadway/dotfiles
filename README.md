@@ -19,7 +19,6 @@ Note: that CommandT is only tested on Darwin
 Install [brew][brew] into `/usr/local`, [XQuartz][XQuartz] into `/opt`, [rvm][rvm] into `~/.rvm`
 
     brew install git
-    brew install zsh
     brew install macvim --override-system-vim --enable-clipboard
     brew install haskell-platform
     cabal install xmonad
