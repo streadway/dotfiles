@@ -6,6 +6,7 @@
 . $HOME/.profile
 
 export USERWM=`which xmonad`
+export USERWM=`which xquartz`
 
 for path in /opt/X11 /usr/X11 ; do
   if [ -d $path ]; then

@@ -1,7 +1,7 @@
 " paredit.vim:
 "               Paredit mode for Slimv
-" Version:      0.9.3
-" Last Change:  30 Nov 2011
+" Version:      0.9.6
+" Last Change:  13 Mar 2012
 " Maintainer:   Tamas Kovacs <kovisoft at gmail dot com>
 " License:      This file is placed in the public domain.
 "               No warranty, express or implied.
@@ -200,7 +200,7 @@ function! PareditOpfunc( func, type, visualmode )
     let ve_save = &virtualedit
     set virtualedit=all
     let regname = v:register
-    let reg_save = @@
+    let save_0 = getreg( '0' )
 
     if a:visualmode  " Invoked from Visual mode, use '< and '> marks.
         silent exe "normal! `<" . a:type . "`>"
@@ -222,10 +222,19 @@ function! PareditOpfunc( func, type, visualmode )
     else
         silent exe "normal! y"
         let putreg = getreg( '"' )
+        if a:func == 'd'
+            " Register "0 is corrupted by the above 'y' command
+            call setreg( '0', save_0 ) 
+        endif
 
         " Find and keep unbalanced matched characters in the region
         let endingwhitespace = matchstr(putreg, "\\s*$")
-        let matched = s:GetMatchedChars( putreg, s:InsideString( "'<" ), s:InsideComment( "'<" ) )
+        let instring = s:InsideString( line("'<"), col("'<") )
+        if col("'>") > 1 && !s:InsideString( line("'<"), col("'<") - 1 )
+            " We are at the beginning of the string
+            let instring = 0
+        endif
+        let matched = s:GetMatchedChars( putreg, instring, s:InsideComment( line("'<"), col("'<") ) )
         let matched = s:Unbalanced( matched )
         let matched = substitute( matched, '\s', '', 'g' )
         if a:func == 'c'
@@ -233,7 +242,7 @@ function! PareditOpfunc( func, type, visualmode )
         endif
 
         if matched == ''
-            silent exe "normal! gvx"
+            silent exe "normal! gvd"
         else
             silent exe "normal! gvc" . matched
             silent exe "normal! l"
@@ -245,8 +254,12 @@ function! PareditOpfunc( func, type, visualmode )
 
     let &selection = sel_save
     let &virtualedit = ve_save
-    let @@ = reg_save
-    call setreg( regname, putreg ) 
+    if a:func == 'd' && regname == '"'
+        " Do not currupt the '"' register and hence the "0 register
+        call setreg( '1', putreg ) 
+    else
+        call setreg( regname, putreg ) 
+    endif
 endfunction
 
 " Set delete mode also saving repeat count
@@ -266,8 +279,11 @@ endfunction
 
 " General change operator handling
 function! PareditChange( type, ... )
+    let ve_save = &virtualedit
+    set virtualedit=all
     call PareditOpfunc( 'c', a:type, a:0 )
     startinsert
+    let &virtualedit = ve_save
 endfunction
 
 " Delete v:count number of lines
@@ -292,12 +308,19 @@ endfunction
 
 " Paste text from put register in a balanced way
 function! PareditPut( cmd )
-    let reg_save = @@
-    let putreg = getreg( v:register )
+    let regname = v:register
+    let reg_save = getreg( regname )
+    let putreg = reg_save
 
     " Find unpaired matched characters by eliminating paired ones
-    let matched = s:GetMatchedChars( putreg, s:InsideString( '.' ), s:InsideComment( '.' ) )
+    let matched = s:GetMatchedChars( putreg, s:InsideString(), s:InsideComment() )
     let matched = s:Unbalanced( matched )
+
+    if matched !~ '\S\+'
+        " Register contents is balanced, perform default put function
+        silent exe "normal! " . (v:count>1 ? v:count : '') . (regname=='"' ? '' : '"'.regname) . a:cmd
+        return
+    endif
 
     " Replace all unpaired matched characters with a space in order to keep balance
     let i = 0
@@ -309,13 +332,9 @@ function! PareditPut( cmd )
     endwhile
 
     " Store balanced text in put register and call the appropriate put command
-    call setreg( '"', putreg ) 
-    if v:count > 1
-        silent exe "normal! " . v:count . a:cmd
-    else
-        silent exe "normal! " . a:cmd
-    endif
-    let @@ = reg_save
+    call setreg( regname, putreg ) 
+    silent exe "normal! " . (v:count>1 ? v:count : '') . (regname=='"' ? '' : '"'.regname) . a:cmd
+    call setreg( regname, reg_save ) 
 endfunction
 
 " Toggle paredit mode
@@ -326,23 +345,42 @@ function! PareditToggle()
 endfunction
 
 " Does the current syntax item match the given regular expression?
-function! s:SynIDMatch( regexp, pos, match_eol )
-    let line = line( a:pos )
-    let col  = col ( a:pos )
-    if a:match_eol && col > len( getline( line ) )
+function! s:SynIDMatch( regexp, line, col, match_eol )
+    let col  = a:col
+    if a:match_eol && col > len( getline( a:line ) )
         let col = col - 1
     endif
-    return synIDattr( synID( line, col, 0), 'name' ) =~ a:regexp
+    return synIDattr( synID( a:line, col, 0), 'name' ) =~ a:regexp
 endfunction
 
 " Is the current cursor position inside a comment?
 function! s:InsideComment( ... )
-    return s:SynIDMatch( '[Cc]omment', a:0 ? a:1 : '.', 1 )
+    let l = a:0 ? a:1 : line('.')
+    let c = a:0 ? a:2 : col('.')
+    if &syntax == ''
+        " No help from syntax engine,
+        " remove strings and search for ';' up to the cursor position
+        let line = strpart( getline(l), 0, c - 1 )
+        let line = substitute( line, '\\"', '', 'g' )
+        let line = substitute( line, '"[^"]*"', '', 'g' )
+        return match( line, ';' ) >= 0
+    endif
+    return s:SynIDMatch( '[Cc]omment', l, c, 1 )
 endfunction
 
 " Is the current cursor position inside a string?
 function! s:InsideString( ... )
-    return s:SynIDMatch( '[Ss]tring', a:0 ? a:1 : '.', 0 )
+    let l = a:0 ? a:1 : line('.')
+    let c = a:0 ? a:2 : col('.')
+    if &syntax == ''
+        " No help from syntax engine,
+        " count quote characters up to the cursor position
+        let line = strpart( getline(l), 0, c - 1 )
+        let line = substitute( line, '\\"', '', 'g' )
+        let quotes = substitute( line, '[^"]', '', 'g' )
+        return len(quotes) % 2
+    endif
+    return s:SynIDMatch( '[Ss]tring', l, c, 0 )
 endfunction
 
 " Is this a Slimv REPL buffer?
@@ -1355,6 +1393,7 @@ endfunction
 au BufNewFile,BufRead *.lisp call PareditInitBuffer()
 au BufNewFile,BufRead *.cl   call PareditInitBuffer()
 au BufNewFile,BufRead *.clj  call PareditInitBuffer()
+au BufNewFile,BufRead *.cljs call PareditInitBuffer()
 au BufNewFile,BufRead *.scm  call PareditInitBuffer()
 au BufNewFile,BufRead *.rkt  call PareditInitBuffer()
 

@@ -6,10 +6,15 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Package paths
-export PATH=/usr/local/mysql/bin:/usr/local/hadoop/bin:/usr/local/go/bin:$PATH
+export PATH=/usr/local/mysql/bin:/usr/local/hadoop/bin:/usr/local/go/bin:/usr/local/gcutil:$PATH
 
 # User paths
-export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/bin:$HOME/sbin:$HOME/.cabal/bin:$PATH
+
+# AWS
+export PATH=$PATH:/usr/local/aws/as/bin:/usr/local/aws/cw/bin:/usr/local/aws/ec2/bin:/usr/local/aws/elb/bin
+
+export PATH=$PATH:/usr/local/google-cloud-sdk/bin
 
 export MANPATH=/usr/local/man:/usr/local/mysql/man:/opt/man:/opt/share/man:$MANPATH
 
@@ -26,5 +31,10 @@ export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M -Xmx2048M"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME"
 
+export PLAN9=/usr/local/plan9
+export PATH=$PATH:$PLAN9/bin
+export MANPATH=$MANPATH:$PLAN9/man
+
 [ -s $HOME/.local.profile   ] && . $HOME/.local.profile
 [ -s $HOME/.rvm/scripts/rvm ] && . $HOME/.rvm/scripts/rvm
+# [ -s $HOME/.nix-profile/etc/profile.d/nix.sh ] && . $HOME/.nix-profile/etc/profile.d/nix.sh 

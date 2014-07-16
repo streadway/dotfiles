@@ -26,6 +26,8 @@ set listchars=tab:»·
 set listchars+=trail:·
 set listchars+=precedes:◀,extends:▶
 set grepprg=ack\ -a\ -G\ '[^.6]$'
+set noerrorbells
+set visualbell
 
 if has("gui_macvim")
   let macvim_skip_cmd_opt_movement=1
@@ -60,17 +62,18 @@ set autoread          " reload when no local changes
 set backup
 set backupdir=~/.vim/backup,~/.backup,~/tmp,/var/tmp/,/tmp,.
 set directory=~/tmp,/var/tmp,/tmp,.
+set shell=sh          " bash and zsh call /usr/bin/libexec/path_helper that prepends /usr/bin, bourne doesn't
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.6,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.class,.jar
 
 " Per file-type indentation
-autocmd BufEnter *.js     set sts=4 sw=4
-autocmd BufEnter *.c      set sts=4 sw=4
-autocmd BufEnter *.go     set ts=2 sw=2 noet nolist ai
-autocmd BufEnter *.thrift set ts=2 sw=2
-autocmd BufEnter *.thrift setf thrift
+autocmd FileType js     setlocal sts=4 sw=4
+autocmd FileType c      setlocal sts=4 sw=4
+autocmd FileType go     setlocal ts=2 sw=2 noet nolist ai makeprg=go\ test
+autocmd FileType thrift setlocal ts=2 sw=2
+autocmd FileType thrift setf thrift
 
 " File-type
 filetype plugin indent on
@@ -81,15 +84,18 @@ colorscheme solarized
 syntax enable
 
 "" Bash out extra whitespace
-highlight StatusLine ctermbg=234
-highlight StatusLineNC ctermbg=232 ctermfg=8
-highlight CursorLine guibg=Gray20 ctermbg=233 cterm=NONE
-highlight Pmenu ctermfg=black ctermbg=brown gui=bold
-highlight PmenuSel ctermfg=black ctermbg=lightmagenta gui=bold
-highlight LineNr ctermfg=235
+"highlight StatusLine ctermbg=234
+"highlight StatusLineNC ctermbg=232 ctermfg=8
+"highlight CursorLine guibg=Gray20 ctermbg=233 cterm=NONE
+"highlight Pmenu ctermfg=black ctermbg=brown gui=bold
+"highlight PmenuSel ctermfg=black ctermbg=lightmagenta gui=bold
+"highlight LineNr ctermfg=235
 
 "" Mappings
+map <Leader>m :make<CR>
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>i
 map <Leader>P :set nopaste<CR>i
 map <Leader>s :setlocal spell! spelllang=en_us<CR>
+map <Leader>l :TlistToggle<CR>
+map <Leader>L :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>

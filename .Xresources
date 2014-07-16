@@ -19,6 +19,7 @@ dzen2.background:          black
 
 ! XTerm
 XTerm*termName:            xterm-256color
+XTerm*jumpScroll:          true
 XTerm*scrollBar:           false
 XTerm*scrollTtyOutput:     false
 XTerm*scrollKey:           true
@@ -37,6 +38,14 @@ XTerm*sessionMgt:          false
 ! Font
 XTerm*faceName: xft:Menlo:aspect=0.9
 XTerm*faceSize: 11
+
+*VT100*translations: #override \n\
+  Shift <KeyPress> F1: set-vt-font(1) \n\
+  Shift <KeyPress> F2: set-vt-font(2) \n\
+  Shift <KeyPress> F3: set-vt-font(3) \n\
+  Shift <KeyPress> F4: set-vt-font(4) \n\
+  Shift <KeyPress> F5: set-vt-font(5) \n\
+  Shift <KeyPress> F6: set-vt-font(6)
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
 !! http://ethanschoonover.com/solarized
@@ -62,6 +71,25 @@ XTerm*faceSize: 11
 
 !! #define S_base03        #002b36
 !! L*A*B 2.2 -9.348 -11.091
+! Light
+!! #define S_base3         #000f1a
+!! #define S_base2         #073642
+!! #define S_base1         #586e75
+!! #define S_base0         #657b83
+!! #define S_base00        #839496
+!! #define S_base01        #93a1a1
+!! #define S_base02        #eee8d5
+!! #define S_base03        #fdf6e3
+!! #define S_yellow        #b58900
+!! #define S_orange        #cb4b16
+!! #define S_red           #dc322f
+!! #define S_magenta       #d33682
+!! #define S_violet        #6c71c4
+!! #define S_blue          #268bd2
+!! #define S_cyan          #2aa198
+!! #define S_green         #859900
+
+! Dark
 #define S_base03        #000f1a
 #define S_base02        #073642
 #define S_base01        #586e75

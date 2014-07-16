@@ -50,6 +50,7 @@ alias e='vim'
 alias wic='wicd-curses'
 alias rcconf='sudo vim /etc/rc.conf'
 alias chrome='chromium'
+alias gdoc='links http://localhost:6060/pkg'
 
 #
 # History
