@@ -1,7 +1,15 @@
-all: .vim/ruby/command-t/ext.bundle xrdb
+../%: %
+	ln -nsfF .dotfiles/$< $@
 
-.vim/ruby/command-t/ext.bundle:
-	cd .vim/ruby/command-t && ruby extconf.rb && make
+update: ../.vimrc ../.vim ../.gitconfig ../.irbrc ../.tmux.conf
+	git submodule update --init --recursive
+	mkdir -p ../bin ../.config
+	[ -h ../.config/fish ] || rm -rf ../.config/fish
+	ln -nsfF .dotfiles/.config/fish ../.config/fish
+	cp -Rp bin/* ../bin/
+
+build:
+	cd .vim/bundle/YouCompleteMe && ./install.sh --clang-completer --gocode-completer
 
 xrdb: .Xresources
 	xrdb -merge .Xresources
