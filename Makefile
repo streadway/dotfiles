@@ -1,3 +1,6 @@
+packages:
+	sudo apt-get install -y clang fish cmake exuberant-ctags python-dev golang mosh
+
 ../%: %
 	ln -nsfF .dotfiles/$< $@
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
 case $(uname -s) in
-  Darwin) exec reattach-to-user-namespace -l fish
-  *)      exec bash
+  Darwin) exec reattach-to-user-namespace -l fish ;;
+  *)      exec fish ;;
 esac

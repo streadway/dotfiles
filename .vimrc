@@ -85,6 +85,8 @@ filetype plugin indent on
 syntax on
 
 " Colors
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 colorscheme solarized
 syntax enable
 
