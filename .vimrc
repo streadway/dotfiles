@@ -4,10 +4,14 @@ let g:mapleader=","
 let maplocalleader=","
 let g:maplocalleader=","
 
+let g:go_fmt_command = "goimports"
+
 set nocompatible
 
 " Extra runtime configs
 set rtp+=$GOROOT/misc/vim
+
+execute pathogen#infect()
 
 " Text Handling
 set tabstop=2
@@ -25,7 +29,7 @@ set list             " alternate: set listchars+=tab:▸\ ,eol¬
 set listchars=tab:»·
 set listchars+=trail:·
 set listchars+=precedes:◀,extends:▶
-set grepprg=ack\ -a\ -G\ '[^.6]$'
+set grepprg=ack
 set noerrorbells
 set visualbell
 
@@ -72,6 +76,7 @@ set suffixes=.bak,~,.swp,.o,.6,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx
 autocmd FileType js     setlocal sts=4 sw=4
 autocmd FileType c      setlocal sts=4 sw=4
 autocmd FileType go     setlocal ts=2 sw=2 noet nolist ai makeprg=go\ test
+autocmd FileType godoc  setlocal ts=2 nolist
 autocmd FileType thrift setlocal ts=2 sw=2
 autocmd FileType thrift setf thrift
 
@@ -98,4 +103,6 @@ map <Leader>p :set paste<CR>i
 map <Leader>P :set nopaste<CR>i
 map <Leader>s :setlocal spell! spelllang=en_us<CR>
 map <Leader>l :TlistToggle<CR>
-map <Leader>L :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <Leader>c :TagbarToggle<CR>
+
+autocmd FileType go map <Leader>m :GoTest<CR>
