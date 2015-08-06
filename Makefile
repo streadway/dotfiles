@@ -1,5 +1,5 @@
 packages:
-	sudo apt-get install -y clang fish cmake exuberant-ctags python-dev golang mosh
+	sudo apt-get install -y clang fish cmake exuberant-ctags python-dev golang mosh ack-grep
 
 ../%: %
 	ln -nsfF .dotfiles/$< $@
