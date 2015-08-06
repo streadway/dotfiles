@@ -9,7 +9,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:/usr/local/hadoop/bin:/usr/local/go/bin:/usr/local/gcutil:$PATH
 
 # User paths
-export PATH=$HOME/bin:$HOME/sbin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/bin:$HOME/sbin:$HOME/.cabal/bin:$HOME/.gem/ruby/2.0.0/bin:$PATH
 
 # AWS
 export PATH=$PATH:/usr/local/aws/as/bin:/usr/local/aws/cw/bin:/usr/local/aws/ec2/bin:/usr/local/aws/elb/bin
@@ -30,6 +30,8 @@ export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M -Xmx2048M"
 
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME"
+
+export DOCKER_HOST=tcp://0.0.0.0:2375
 
 export PLAN9=/usr/local/plan9
 export PATH=$PATH:$PLAN9/bin
