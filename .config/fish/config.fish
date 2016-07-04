@@ -19,10 +19,4 @@ function enc --description 'Encrypts stdin to stdout using shibboleth'
 end
 
 set -g -x GOPATH $HOME
-set -g -x PATH /usr/local/bin $PATH
-set -g -x EDITOR /usr/local/bin/vim
-
-set -g -x DOCKER_HOST tcp://192.168.59.103:2376
-set -g -x DOCKER_CERT_PATH $HOME/.boot2docker/certs/boot2docker-vm
-set -g -x DOCKER_TLS_VERIFY 1
-
+set -g -x PATH /usr/local/go/bin /usr/local/bin $PATH
