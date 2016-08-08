@@ -18,7 +18,7 @@ export PATH=$PATH:/usr/local/google-cloud-sdk/bin
 
 export MANPATH=/usr/local/man:/usr/local/mysql/man:/opt/man:/opt/share/man:$MANPATH
 
-export EDITOR="vim"
+export EDITOR=$(which vim vi | head -n 1)
 export RSH="ssh"
 export CVS_RSH="ssh"
 export LANG="en_US.UTF-8"
