@@ -4,5 +4,5 @@
 .xmonad/xmonad-*
 .xmonad/*.errors
 .vim/.netrwhist
-.config/fish/fish_history
+.config/fish/fish_history*
 .config/fish/fishd*
