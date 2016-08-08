@@ -1,10 +1,13 @@
 " Leaders are needed before plugins are loaded
 let mapleader=","
 let g:mapleader=","
+
 let maplocalleader=","
 let g:maplocalleader=","
 
 let g:go_fmt_command = "goimports"
+let g:neocomplete#enable_at_startup = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets'
 
 set nocompatible
 
@@ -12,6 +15,7 @@ set nocompatible
 set rtp+=$GOROOT/misc/vim
 
 execute pathogen#infect()
+" :Helptags to update docs
 
 " Text Handling
 set tabstop=2
@@ -106,5 +110,9 @@ map <Leader>P :set nopaste<CR>i
 map <Leader>s :setlocal spell! spelllang=en_us<CR>
 map <Leader>l :TlistToggle<CR>
 map <Leader>c :TagbarToggle<CR>
+
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 autocmd FileType go map <Leader>m :GoTest<CR>
