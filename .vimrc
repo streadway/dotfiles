@@ -91,7 +91,7 @@ syntax on
 " Colors
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+colorscheme gruvbox
 syntax enable
 
 "" Bash out extra whitespace
