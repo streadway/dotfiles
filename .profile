@@ -31,8 +31,6 @@ export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M -Xmx2048M"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME"
 
-export DOCKER_HOST=tcp://0.0.0.0:2375
-
 export PLAN9=/usr/local/plan9
 export PATH=$PATH:$PLAN9/bin
 export MANPATH=$MANPATH:$PLAN9/man
