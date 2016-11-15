@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/neosnippet-snippets"]
 	path = .vim/bundle/neosnippet-snippets
 	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
