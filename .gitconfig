@@ -28,3 +28,5 @@
 	private = yes
 [diff]
 	tool = vimdiff
+[url "git@github.com:soundcloud"]
+	insteadOf = https://github.com/soundcloud

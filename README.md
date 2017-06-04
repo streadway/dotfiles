@@ -45,10 +45,6 @@ github account name, or to a chmod 0600 file ~/.github.token
   * xinitrc for standalone launching for XQuartz.org
   * XMonad for crashless tiled window management
 
-## zsh
-
-  * Pulling in most of what [cloudhead](https://github.com/cloudhead/dotfiles) has
-
 ### Copying
 
 Fork what you want, give attribution if it's needed, my contributions released with CC0 no rights reserved.

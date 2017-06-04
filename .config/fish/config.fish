@@ -20,3 +20,8 @@ end
 
 set -g -x GOPATH $HOME
 set -g -x PATH /usr/local/go/bin /usr/local/bin $PATH
+
+# Load rbenv automatically by appending
+# the following to ~/.config/fish/config.fish:
+
+status --is-interactive; and source (rbenv init -|psub)
