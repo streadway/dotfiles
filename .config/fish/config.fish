@@ -25,3 +25,5 @@ set -g -x PATH /usr/local/go/bin /usr/local/bin $PATH
 # the following to ~/.config/fish/config.fish:
 
 status --is-interactive; and source (rbenv init -|psub)
+
+source /usr/local/libexec/google-cloud-sdk/path.fish.inc

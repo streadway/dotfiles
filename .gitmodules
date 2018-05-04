@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/swift.vim"]
 	path = .vim/bundle/swift.vim
 	url = https://github.com/keith/swift.vim
+[submodule ".vim/bundle/python-mode"]
+	path = .vim/bundle/python-mode
+	url = https://github.com/python-mode/python-mode

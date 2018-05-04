@@ -14,8 +14,6 @@ export PATH=$HOME/bin:$HOME/sbin:$HOME/.cabal/bin:$HOME/.gem/ruby/2.0.0/bin:$PAT
 # AWS
 export PATH=$PATH:/usr/local/aws/as/bin:/usr/local/aws/cw/bin:/usr/local/aws/ec2/bin:/usr/local/aws/elb/bin
 
-export PATH=$PATH:/usr/local/google-cloud-sdk/bin
-
 export MANPATH=/usr/local/man:/usr/local/mysql/man:/opt/man:/opt/share/man:$MANPATH
 
 export EDITOR=$(which vim vi | head -n 1)

@@ -8,6 +8,8 @@ let g:maplocalleader=","
 let g:go_fmt_command = "goimports"
 let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets'
+let g:pymode_virtualenv = 1
+let g:pymode_virtualenv_path = $VIRTUAL_ENV
 
 set nocompatible
 
@@ -15,6 +17,7 @@ set nocompatible
 set rtp+=$GOROOT/misc/vim
 
 execute pathogen#infect()
+execute pathogen#helptags()
 " :Helptags to update docs
 
 " Text Handling
@@ -118,6 +121,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 inoremap jj <esc>
 inoremap jk <esc>
+inoremap kj <esc>
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
