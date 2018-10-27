@@ -19,7 +19,7 @@ function enc --description 'Encrypts stdin to stdout using shibboleth'
 end
 
 set -g -x GOPATH $HOME
-set -g -x PATH /usr/local/go/bin /usr/local/bin $PATH
+set -g -x PATH /usr/local/miniconda3/bin /usr/local/go/bin /usr/local/bin $PATH
 
 # Load rbenv automatically by appending
 # the following to ~/.config/fish/config.fish:

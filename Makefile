@@ -6,6 +6,8 @@ packages:
 
 update: ../.vimrc ../.vim ../.gitconfig ../.irbrc ../.tmux.conf
 	git submodule update --init --recursive
+	git submodule foreach git checkout master
+	git submodule foreach git pull
 	mkdir -p ../bin ../.config
 	[ -h ../.config/fish ] || rm -rf ../.config/fish
 	ln -nsfF ~/.dotfiles/.config/fish ../.config/fish
