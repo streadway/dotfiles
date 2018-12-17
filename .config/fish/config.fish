@@ -19,7 +19,7 @@ function enc --description 'Encrypts stdin to stdout using shibboleth'
 end
 
 set -g -x GOPATH $HOME
-set -g -x PATH /usr/local/miniconda3/bin /usr/local/go/bin /usr/local/bin $PATH
+set -g -x PATH /usr/local/miniconda3/bin /usr/local/flutter/bin /usr/local/go/bin /usr/local/bin $PATH
 
 # Load rbenv automatically by appending
 # the following to ~/.config/fish/config.fish:
@@ -27,3 +27,4 @@ set -g -x PATH /usr/local/miniconda3/bin /usr/local/go/bin /usr/local/bin $PATH
 status --is-interactive; and source (rbenv init -|psub)
 
 source /usr/local/libexec/google-cloud-sdk/path.fish.inc
+eval (docker-machine env default --shell fish)
