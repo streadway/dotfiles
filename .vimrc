@@ -1,3 +1,8 @@
+" https://github.com/vim/vim/issues/3117
+if has('python3')
+  silent! python3 1
+endif
+
 " Leaders are needed before plugins are loaded
 let mapleader=","
 let g:mapleader=","
@@ -36,7 +41,7 @@ set list             " alternate: set listchars+=tab:▸\ ,eol¬
 set listchars=tab:»·
 set listchars+=trail:·
 set listchars+=precedes:◀,extends:▶
-set grepprg=ack
+set grepprg=ag
 set noerrorbells
 set visualbell
 
