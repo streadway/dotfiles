@@ -32,3 +32,6 @@
 	path = .vim/bundle/python-mode
 	url = https://github.com/python-mode/python-mode
   branch = 0.9.2
+[submodule ".vim/bundle/julia-vim"]
+	path = .vim/bundle/julia-vim
+	url = https://github.com/JuliaEditorSupport/julia-vim
