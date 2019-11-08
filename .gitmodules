@@ -35,3 +35,6 @@
 [submodule ".vim/bundle/julia-vim"]
 	path = .vim/bundle/julia-vim
 	url = https://github.com/JuliaEditorSupport/julia-vim
+[submodule ".vim/bundle/vim-terraform"]
+	path = .vim/bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
