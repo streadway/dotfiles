@@ -9,7 +9,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:/usr/local/hadoop/bin:/usr/local/go/bin:/usr/local/gcutil:$PATH
 
 # User paths
-export PATH=$HOME/bin:$HOME/sbin:$HOME/.cabal/bin:$HOME/.gem/ruby/2.0.0/bin:$PATH
+export PATH=$HOME/bin:$HOME/sbin:$HOME/.cargo/bin:$HOME/.cabal/bin
 
 # AWS
 export PATH=$PATH:/usr/local/aws/as/bin:/usr/local/aws/cw/bin:/usr/local/aws/ec2/bin:/usr/local/aws/elb/bin
