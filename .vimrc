@@ -11,15 +11,14 @@ let maplocalleader=","
 let g:maplocalleader=","
 
 let g:go_fmt_command = "goimports"
-let g:neocomplete#enable_at_startup = 1
-let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets'
+let g:deoplete#enable_at_startup = 1
 let g:pymode_virtualenv = 1
 let g:pymode_virtualenv_path = $VIRTUAL_ENV
 
 set nocompatible
 
 " Extra runtime configs
-set rtp+=$GOROOT/misc/vim
+" set rtp+=$GOROOT/misc/vim
 
 execute pathogen#infect()
 execute pathogen#helptags()

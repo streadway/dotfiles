@@ -18,6 +18,7 @@ function enc --description 'Encrypts stdin to stdout using shibboleth'
   command curl -Ss -T- http://shibboleth/encrypt
 end
 
+set -g -x SHELL /usr/bin/bash
 set -g -x CDPATH . $HOME/src/github.com/soundcloud
 set -g -x GOPATH $HOME
 # set -g -x PATH /usr/local/miniconda3/bin /usr/local/flutter/bin /usr/local/go/bin /usr/local/bin $PATH

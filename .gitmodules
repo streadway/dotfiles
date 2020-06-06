@@ -13,15 +13,6 @@
 [submodule ".vim/bundle/gruvbox"]
 	path = .vim/bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule ".vim/bundle/neosnippet.vim"]
-	path = .vim/bundle/neosnippet.vim
-	url = https://github.com/Shougo/neosnippet.vim.git
-[submodule ".vim/bundle/neocomplete.vim"]
-	path = .vim/bundle/neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule ".vim/bundle/neosnippet-snippets"]
-	path = .vim/bundle/neosnippet-snippets
-	url = https://github.com/Shougo/neosnippet-snippets.git
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -38,3 +29,15 @@
 [submodule ".vim/bundle/vim-terraform"]
 	path = .vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule ".vim/bundle/deoplete."]
+	path = .vim/bundle/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+[submodule ".vim/bundle/deoppet.nvim"]
+	path = .vim/bundle/deoppet.nvim
+	url = https://github.com/Shougo/deoppet.nvim
+[submodule ".vim/bundle/nvim-yarp"]
+	path = .vim/bundle/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule ".vim/bundle/vim-hug-neovim-rpc"]
+	path = .vim/bundle/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc
