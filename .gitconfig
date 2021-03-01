@@ -28,7 +28,7 @@
 	private = yes
 [diff]
 	tool = vimdiff
-#[url "git@github.com:soundcloud"]
-#	insteadOf = https://github.com/soundcloud
+[url "git@github.com:soundcloud"]
+	insteadOf = https://github.com/soundcloud
 [http]
 	cookiefile = /Users/sean/.gitcookies
