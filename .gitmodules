@@ -41,3 +41,6 @@
 [submodule ".vim/bundle/vim-hug-neovim-rpc"]
 	path = .vim/bundle/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc
+[submodule ".vim/bundle/earthly.vim"]
+	path = .vim/bundle/earthly.vim
+	url = https://github.com/earthly/earthly.vim.git
