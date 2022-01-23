@@ -20,15 +20,15 @@
 	whitespace = nowarn
 [github]
 	user = streadway
-#	password = !"cat ~/.github.password 2>/dev/null || security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \"(.*)\"$/'"
-#	token = !"cat ~/.github.token 2>/dev/null || security 2>&1 >/dev/null find-generic-password -gs github.token | ruby -e 'print $1 if STDIN.gets =~ /^password: \"(.*)\"$/'"
 [credential]
 	helper = osxkeychain
+[url "git@github.com:soundcloud"]
+	insteadOf = https://github.com/soundcloud
 [gist]
 	private = yes
 [diff]
 	tool = vimdiff
-[url "git@github.com:soundcloud"]
-	insteadOf = https://github.com/soundcloud
 [http]
 	cookiefile = /Users/sean/.gitcookies
+[core]
+	excludesFile = ~/.dotfiles/gitignore
