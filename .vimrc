@@ -17,6 +17,9 @@ let g:pymode_virtualenv_path = $VIRTUAL_ENV
 
 set nocompatible
 
+" Windows
+noremap <C-Q> <C-V>
+
 " Extra runtime configs
 " set rtp+=$GOROOT/misc/vim
 
